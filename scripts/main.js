@@ -50,7 +50,7 @@ h += Core.graphics.getDeltaTime() * 60;
 if(h>longPress){
 folded = true;
 mode = speedArr.indexOf(current);
-if(mode < 0) mode = speedArr.length();
+if(mode < 0) mode = speedArr.length;
 }
 }
 else{

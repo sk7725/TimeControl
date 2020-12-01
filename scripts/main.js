@@ -24,12 +24,18 @@ table.fillParent = true;
 table.visibility = () => Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();
 }
 
-Events.on(ClientLoadEvent, () => {
-Core.app.post(() => {
+
+if(!Vars.headless){
 var ut = new Table();
+
+Events.on(ClientLoadEvent, () => {
 ut.top().left();
 addTable(ut);
 ut.marginTop(Core.scene.find("status").getHeight());
 Vars.ui.hudGroup.addChild(ut);
 });
+
+Events.on(WorldLoadEvent, () => {
+ut.marginTop(Core.scene.find("status").getHeight());
 });
+}

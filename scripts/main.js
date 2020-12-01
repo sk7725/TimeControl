@@ -74,7 +74,7 @@ h2 += Core.graphics.getDeltaTime() * 60;
 if(h2>longPress) folded = false;
 }
 else{
-h = 0;
+h2 = 0;
 }
 b.setColor(current == 1 ? Pal.lancerLaser : (current > 1.9 ? Pal.accent : Color.orange));
 });

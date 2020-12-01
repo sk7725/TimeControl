@@ -3,7 +3,7 @@
 	"displayName": "Time Control",
 	"author": "[royal]sk7725[]",
 	"description": "Speeds up or slows down Mindustry. \n\n[scarlet]Disclaimer: not intended for multiplayer use![]",
-	"version": "0",
+	"version": "0.1",
 	"hidden": true,
 	"minGameVersion": 108
 }

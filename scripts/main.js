@@ -104,23 +104,27 @@ table.fillParent = true;
 table.visibility = () => !folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();
 }
 
+function addMiniT(table){
+table.table(Styles.black5, cons(t => {
+t.background(Tex.buttonEdge3);
+if(Vars.mobile) addMini(t, [0.25, 0.5, 1, 2, 4], [".25", ".5", "x1", "x2", "x4"]);
+else addMini(t, [0.25, 0.5, 1, 2, 4], ["x.25", "x0.5", "x1", "x2", "x4"]).width(60);
+}));
+table.fillParent = true;
+table.visibility = () => folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();
+}
+
 
 if(!Vars.headless){
 var ut = new Table();
 var ft = new Table();
 
-ft.table(Styles.black5, cons(t => {
-t.background(Tex.buttonEdge3);
-if(Vars.mobile) addMini(t, [0.25, 0.5, 1, 2, 4], [".25", ".5", "x1", "x2", "x4"]);
-else addMini(t, [0.25, 0.5, 1, 2, 4], ["x.25", "x0.5", "x1", "x2", "x4"]).width(60);
-}));
-ft.fillParent = true;
-ft.visibility = () => folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();
 
 Events.on(ClientLoadEvent, () => {
 ut.bottom().left();
 ft.bottom().left();
 addTable(ut);
+addMiniT(ft);
 Vars.ui.hudGroup.addChild(ut);
 Vars.ui.hudGroup.addChild(ft);
 });

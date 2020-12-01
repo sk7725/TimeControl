@@ -2,7 +2,7 @@
 	"name": "time-control",
 	"displayName": "Time Control",
 	"author": "[royal]sk7725[]",
-	"description": "Speeds up or slows down Mindustry. \n\n[scarlet]Disclaimer: not intended for multiplayer use![]",
+	"description": "Speeds up or slows down Mindustry.\n[accent]Press & hold "x1" to fold the buttons.[]\nSome buttons can be pressed twice.\n\n[scarlet]Disclaimer: not intended for multiplayer use![]",
 	"version": "0.2",
 	"hidden": true,
 	"minGameVersion": 108

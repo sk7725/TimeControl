@@ -31,11 +31,9 @@ var ut = new Table();
 Events.on(ClientLoadEvent, () => {
 ut.top().left();
 addTable(ut);
-ut.marginTop(Core.scene.find("status").getHeight());
+  var status = Core.scene.find("status");
+  ut.update(() => {
+    ut.marginTop(status.getHeight());
+  });
 Vars.ui.hudGroup.addChild(ut);
 });
-
-Events.on(WorldLoadEvent, () => {
-ut.marginTop(Core.scene.find("status").getHeight());
-});
-}

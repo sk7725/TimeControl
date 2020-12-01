@@ -25,9 +25,11 @@ table.visibility = () => Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();
 }
 
 Events.on(ClientLoadEvent, () => {
+Core.app.post(() => {
 var ut = new Table();
 ut.top().left();
 addTable(ut);
 ut.marginTop(Core.scene.find("status").getHeight());
 Vars.ui.hudGroup.addChild(ut);
+});
 });

@@ -1,4 +1,6 @@
 # TimeControl
-Speeds up or slows down Mindustry.
+Speeds up or slows down Mindustry.   
 
-Not intended for multiplayer use.
+Supports `x0.25` ~ `x16`. Some buttons can be pressed twice to alternate between different modes.   
+
+Not intended for multiplayer use.   

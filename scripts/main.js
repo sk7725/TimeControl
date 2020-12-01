@@ -1,5 +1,6 @@
 var current = 1;
 const longPress = 90;
+const speedArr = [0.25, 0.5, 1, 2, 4];
 var folded = false;
 
 function addSpeed(t, speed){
@@ -46,7 +47,11 @@ current = speed;
 b.update(() => {
 if(b.isPressed()){
 h += Core.graphics.getDeltaTime() * 60;
-if(h>longPress) folded = true;
+if(h>longPress){
+folded = true;
+mode = speedArr.indexOf(current);
+if(mode < 0) mode = speedArr.length();
+}
 }
 else{
 h = 0;
@@ -107,8 +112,8 @@ table.visibility = () => !folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfra
 function addMiniT(table){
 table.table(Styles.black5, cons(t => {
 t.background(Tex.buttonEdge3);
-if(Vars.mobile) addMini(t, [0.25, 0.5, 1, 2, 4], [".25", ".5", "x1", "x2", "x4"]);
-else addMini(t, [0.25, 0.5, 1, 2, 4], ["x.25", "x0.5", "x1", "x2", "x4"]).width(60);
+if(Vars.mobile) addMini(t, speedArr, [".25", ".5", "x1", "x2", "x4", "×?"]);
+else addMini(t, speedArr, ["x.25", "x0.5", "x1", "x2", "x4", "x8+"]).width(60);
 }));
 table.fillParent = true;
 table.visibility = () => folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();

@@ -37,14 +37,18 @@ table.table(Styles.black5, cons(t => {
 t.background(Tex.buttonEdge3);
 if(Vars.mobile){
 addSpeedAlt(t, 0.5, 0.25).width(60);
+addSpeed(t, 1).width(45);
+addSpeedAlt(t, 2, 8).width(45);
+addSpeedAlt(t, 4, 16).width(45);
 }
 else{
 addSpeed(t, 0.25).width(65);
 addSpeed(t, 0.5);
-}
 addSpeed(t, 1);
 addSpeedAlt(t, 2, 8);
 addSpeedAlt(t, 4, 16);
+}
+
 }));
 table.fillParent = true;
 table.visibility = () => Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown();

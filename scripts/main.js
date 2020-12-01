@@ -37,3 +37,4 @@ addTable(ut);
   });
 Vars.ui.hudGroup.addChild(ut);
 });
+}

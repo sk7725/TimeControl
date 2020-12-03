@@ -35,6 +35,40 @@ b.setColor(current == speed2 ? Pal.accent : Pal.lancerLaser);
 return t.add(b).size(50, 40).color(Pal.lancerLaser).pad(1);
 }
 
+function addSpeedThree(t, speed, speed2, speed3){
+var b = new Button(Styles.logict);
+  var h3 = 0;
+b.label(prov(() => (current == speed ? "[#a9d8ff]" : (current == speed2 ? "[accent]" : (current == speed3 ? "[green]" : "[white]"))) + "x" + (current == speed2 ? speed2 : (current == speed3 ? speed3 : speed)) + "[]"));
+b.clicked(() => {
+  if(h3>longPress) return;
+if(current == speed){
+Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * speed2, 3 * speed2));
+current = speed2;
+b.setColor(Pal.accent);
+}
+else{
+Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * speed, 3 * speed));
+current = speed;
+b.setColor(Pal.lancerLaser);
+}
+});
+b.update(() => {
+  if(b.isPressed()){
+h3 += Core.graphics.getDeltaTime() * 60;
+if(h3>longPress){
+Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * speed3, 3 * speed3));
+current = speed3;
+b.setColor(Color.green);
+}
+}
+else{
+h3 = 0;
+}
+b.setColor(current == speed2 ? Pal.accent : (current == speed3 ? Color.green : Pal.lancerLaser));
+});
+return t.add(b).size(50, 40).color(Pal.lancerLaser).pad(1);
+}
+
 function addOne(t, speed){
 var b = new Button(Styles.logict);
 var h = 0;
@@ -90,17 +124,17 @@ function addTable(table){
 table.table(Styles.black5, cons(t => {
 t.background(Tex.buttonEdge3);
 if(Vars.mobile){
-addSpeedAlt(t, 0.5, 0.25).width(60);
+addSpeedThree(t, 0.5, 0.25, 0.125).width(60);
 addOne(t, 1).width(45);
-addSpeedAlt(t, 2, 8).width(45);
-addSpeedAlt(t, 4, 16).width(45);
+addSpeedThree(t, 2, 8, 64).width(45);
+addSpeedThree(t, 4, 16, 256).width(45);
 }
 else{
-addSpeed(t, 0.25).width(65);
+addSpeedAlt(t, 0.25, 0.125).width(65);
 addSpeed(t, 0.5);
 addOne(t, 1);
-addSpeedAlt(t, 2, 8);
-addSpeedAlt(t, 4, 16);
+addSpeedThree(t, 2, 8, 64);
+addSpeedThree(t, 4, 16, 256).width(65);
 }
 
 //t.visibility = () => !folded;

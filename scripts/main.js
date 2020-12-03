@@ -90,7 +90,8 @@ function addTable(table){
   table.table(Styles.black5, cons(t => {
     t.background(Tex.buttonEdge3);
     if(Vars.mobile){
-      addSpeedAlt(t, 0.5, 0.25).width(60);
+      addSpeedAlt(t, 0.25, 0.0625).width(84);
+      addSpeedAlt(t, 0.5, 0.125).width(72);
       addOne(t, 1).width(45);
       addSpeedAlt(t, 2, 8).width(45);
       addSpeedAlt(t, 4, 16).width(45);

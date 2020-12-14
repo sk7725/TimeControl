@@ -2,8 +2,10 @@
 	"name": "time-control",
 	"displayName": "Time Control",
 	"author": "[royal]sk7725[]",
-	"description": "Speeds up or slows down Mindustry.\n[accent]Press & hold 'x1' to fold the buttons.[]\nSome buttons can be pressed twice.\n\n[scarlet]Disclaimer: not intended for multiplayer use![]",
-	"version": "0.2",
+	"description": "Speeds up or slows down Mindustry.\n[accent]Press & hold 'x1' to fold the buttons.[]\nSome buttons can be pressed twice.\n[stat]Requires [#00aaff]DeltaNedas/ui-lib[].[]\n\n[scarlet]Disclaimer: not intended for multiplayer use![]",
+	"version": "1.0",
 	"hidden": true,
-	"minGameVersion": 108
+	"minGameVersion": 108,
+	"repo": "sk7725/TimeControl",
+	"dependencies": ["ui-lib"]
 }

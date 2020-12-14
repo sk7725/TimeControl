@@ -11,7 +11,6 @@ const log2 = n => Math.log(n) / Math.log(2);
 Time.deltaProvider = () => Math.min(Core.graphics.deltaTime * 60 * speed, 3 * speed);
 
 function addButton(table) {
-	print("Try add " + button + " to " + table)
 	if (button) {
 		table.add(button);
 		return;

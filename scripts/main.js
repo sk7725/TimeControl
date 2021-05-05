@@ -120,6 +120,8 @@ b.setColor(current == 1 ? Pal.lancerLaser : (current > 1.9 ? Pal.accent : Color.
 return t.add(b).size(40, 40).color(Pal.lancerLaser).pad(1).padLeft(0).padRight(0);
 }
 
+let schem = Prov(() => Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty());
+
 function addTable(table){
 table.table(Styles.black5, cons(t => {
 t.background(Tex.buttonEdge3);

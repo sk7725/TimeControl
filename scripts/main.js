@@ -140,8 +140,17 @@ addSpeedThree(t, 4, 16, 256).width(65);
 //t.visibility = () => !folded;
 }));
 table.fillParent = true;
-var schem = Boolp(() => Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty());
-table.visibility = () => !folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown() && (Vars.mobile ? !(Vars.player.unit().isBuilding() || Vars.control.input.block != null || Vars.control.input.mode == PlaceMode.breaking || !Vars.control.input.selectRequests.isEmpty() && !schem.get()) : true);
+table.visibility = () => {
+if(folded) return false;
+if(!Vars.ui.hudfrag.shown) return false;
+if(Vars.ui.minimapfrag.shown()) return false;
+if(!Vars.mobile) return true;
+if(Vars.player.unit().isBuilding()) return false;
+if(Vars.control.input.block != null) return false;
+if(Vars.control.input.mode == PlaceMode.breaking) return false;
+if(!Vars.control.input.selectRequests.isEmpty() && schem.get()) return false;
+return true;
+};
 }
 
 function addMiniT(table){
@@ -151,8 +160,17 @@ if(Vars.mobile) addMini(t, speedArr, [".25", ".5", "x1", "x2", "x4", "×?"]);
 else addMini(t, speedArr, ["x.25", "x0.5", "x1", "x2", "x4", "x8+"]).width(60);
 }));
 table.fillParent = true;
-var schem = Boolp(() => Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty());
-table.visibility = () => folded && Vars.ui.hudfrag.shown && !Vars.ui.minimapfrag.shown() && (Vars.mobile ? !(Vars.player.unit().isBuilding() || Vars.control.input.block != null || Vars.control.input.mode == PlaceMode.breaking || !Vars.control.input.selectRequests.isEmpty() && !schem.get()) : true);
+table.visibility = () => {
+if(!folded) return false;
+if(!Vars.ui.hudfrag.shown) return false;
+if(Vars.ui.minimapfrag.shown()) return false;
+if(!Vars.mobile) return true;
+if(Vars.player.unit().isBuilding()) return false;
+if(Vars.control.input.block != null) return false;
+if(Vars.control.input.mode == PlaceMode.breaking) return false;
+if(!Vars.control.input.selectRequests.isEmpty() && schem.get()) return false;
+return true;
+};
 }
 
 

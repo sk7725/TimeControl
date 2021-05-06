@@ -120,8 +120,6 @@ b.setColor(current == 1 ? Pal.lancerLaser : (current > 1.9 ? Pal.accent : Color.
 return t.add(b).size(40, 40).color(Pal.lancerLaser).pad(1).padLeft(0).padRight(0);
 }
 
-let schem = Prov(() => Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty());
-
 function addTable(table){
 table.table(Styles.black5, cons(t => {
 t.background(Tex.buttonEdge3);
@@ -150,7 +148,7 @@ if(!Vars.mobile) return true;
 if(Vars.player.unit().isBuilding()) return false;
 if(Vars.control.input.block != null) return false;
 if(Vars.control.input.mode == PlaceMode.breaking) return false;
-if(!Vars.control.input.selectRequests.isEmpty() && schem.get()) return false;
+if(!Vars.control.input.selectRequests.isEmpty() && Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty()) return false;
 return true;
 };
 }
@@ -170,7 +168,7 @@ if(!Vars.mobile) return true;
 if(Vars.player.unit().isBuilding()) return false;
 if(Vars.control.input.block != null) return false;
 if(Vars.control.input.mode == PlaceMode.breaking) return false;
-if(!Vars.control.input.selectRequests.isEmpty() && schem.get()) return false;
+if(!Vars.control.input.selectRequests.isEmpty() && Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty()) return false;
 return true;
 };
 }

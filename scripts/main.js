@@ -23,7 +23,7 @@ function addButton(table) {
 		wrapper.clear();
 		addButton(wrapper);
 		wrapper.add(folded ? ft : ut);
-	}).get();
+	}).left().get();
 }
 
 function addTable(table) {

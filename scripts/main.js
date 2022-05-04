@@ -4,7 +4,7 @@ let cols = [Pal.lancerLaser, Pal.accent, Color.valueOf("cc6eaf")];
 function addTable(table){
     table.table(Styles.black5, cons(t => {
         t.background(Tex.buttonEdge3);
-        let s = new Slider(-6, 6, 1, false);
+        let s = new Slider(-8, 8, 1, false);
         s.setValue(0);
         let l = t.label(() => {
             let v = s.getValue();
@@ -18,7 +18,7 @@ function addTable(table){
         s.moved(v => {
             let t = Math.pow(2, v);
             Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * t, 3 * t));
-            l.color(Tmp.c1.lerp(cols, (s.getValue() + 6) / 12));
+            l.color(Tmp.c1.lerp(cols, (s.getValue() + 8) / 16));
         });
     }));
     table.fillParent = true;

@@ -20,8 +20,6 @@ function addTable(table){
             Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * t, 3 * t));
             l.color(Tmp.c1.lerp(cols, (s.getValue() + 6) / 12));
         });
-
-        //t.visibility = () => !folded;
     }));
     table.fillParent = true;
     table.visibility = () => {

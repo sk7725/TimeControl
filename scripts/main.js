@@ -31,7 +31,8 @@ function addTable(table){
         if(Vars.player.unit().isBuilding()) return false;
         if(Vars.control.input.block != null) return false;
         if(Vars.control.input.mode == PlaceMode.breaking) return false;
-        if(!Vars.control.input.selectRequests.isEmpty() && Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty()) return false;
+        //todo port to v7
+        //if(Vars.control.input.selectRequests != null && !Vars.control.input.selectRequests.isEmpty() && Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty()) return false;
         return true;
     };
 }

@@ -23,17 +23,13 @@ function addTable(table){
             l.color(Tmp.c1.lerp(cols, (s.getValue() + 8) / 16));
         });
     }));
-    table.fillParent = true;
+    table.name = "tc-slider";
     table.visibility = () => {
-        if(!Vars.ui.hudfrag.shown) return false;
-        if(Vars.ui.minimapfrag.shown()) return false;
+        if(!Vars.ui.hudfrag.shown || Vars.ui.minimapfrag.shown()) return false;
         if(!Vars.mobile) return true;
-        if(Vars.player.unit().isBuilding()) return false;
-        if(Vars.control.input.block != null) return false;
-        if(Vars.control.input.mode == PlaceMode.breaking) return false;
-        //todo port to v7
-        //if(Vars.control.input.selectRequests != null && !Vars.control.input.selectRequests.isEmpty() && Vars.control.input.lastSchematic != null && !Vars.control.input.selectRequests.isEmpty()) return false;
-        return true;
+        
+        let input = Vars.control.input;
+        return input.lastSchematic == null || input.selectPlans.isEmpty();
     };
 }
 
@@ -44,5 +40,6 @@ if(!Vars.headless){
         tc.bottom().left();
         addTable(tc);
         Vars.ui.hudGroup.addChild(tc);
+        tc.moveBy(0, Vars.mobile ? Scl.scl(48) : 0);
     });
 }

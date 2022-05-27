@@ -23,7 +23,6 @@ function addTable(table){
             l.color(Tmp.c1.lerp(cols, (s.getValue() + 8) / 16));
         });
     }));
-    table.name = "tc-slider";
     table.visibility = () => {
         if(!Vars.ui.hudfrag.shown || Vars.ui.minimapfrag.shown()) return false;
         if(!Vars.mobile) return true;

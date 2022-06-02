@@ -2,8 +2,7 @@
 let cols = [Pal.lancerLaser, Pal.accent, Color.valueOf("cc6eaf")];
 
 function addTable(table){
-    table.table(Styles.black5, cons(t => {
-        t.background(Tex.buttonEdge3);
+    table.table(Tex.pane, t => {
         let s = new Slider(-8, 8, 1, false);
         s.setValue(0);
         let l = t.label(() => {
@@ -22,7 +21,7 @@ function addTable(table){
             Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * t, 3 * t));
             l.color(Tmp.c1.lerp(cols, (s.getValue() + 8) / 16));
         });
-    }));
+    });
     table.visibility = () => {
         if(!Vars.ui.hudfrag.shown || Vars.ui.minimapfrag.shown()) return false;
         if(!Vars.mobile) return true;
@@ -39,6 +38,6 @@ if(!Vars.headless){
         tc.bottom().left();
         addTable(tc);
         Vars.ui.hudGroup.addChild(tc);
-        tc.moveBy(0, Vars.mobile ? Scl.scl(48) : 0);
+        if(Vars.mobile) tc.moveBy(0, Scl.scl(46));
     });
 }

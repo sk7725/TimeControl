@@ -18,8 +18,6 @@ function sliderTable(table){
             folded = true;
         }).grow().width(10.5 * 8).get();
         l.margin(0);
-        l.marginLeft(6);
-        l.getLabel().setAlignment(Align.left);
         let lStyle = l.getStyle();
         lStyle.up = Tex.pane;
         lStyle.over = Tex.flatDownBase;
@@ -54,8 +52,6 @@ function foldedButtonTable(table){
             timeSlider.setValue(curSpeed);
         }).grow().width(10.5 * 8).get();
         foldedButton.margin(0);
-        foldedButton.marginLeft(6);
-        foldedButton.getLabel().setAlignment(Align.left);
         
         foldedButton.update(() => {
             if(foldedButton.isPressed()){

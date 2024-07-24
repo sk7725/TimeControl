@@ -9,6 +9,7 @@ let foldedButton = null;
 
 function sliderTable(table){
     table.table(Tex.buttonEdge3, t => {
+        t.name = "tc-slidertable";
         timeSlider = new Slider(-8, 8, 1, false);
         timeSlider.setValue(0);
         
@@ -41,6 +42,7 @@ function sliderTable(table){
 
 function foldedButtonTable(table){
     table.table(Tex.buttonEdge3, t => {
+        t.name = "tc-foldedtable";
         foldedButton = t.button("[accent]x1", () => {
             curSpeed++;
             if(curSpeed > 2) curSpeed = -2;

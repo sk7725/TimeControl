@@ -82,6 +82,14 @@ function speedText(speed){
 }
 
 function visibility(){
+    if (Vars.net.active()) {
+        let speed = 1;
+        Time.setDeltaProvider(() => Math.min(Core.graphics.getDeltaTime() * 60 * speed, 3 * speed));
+        foldedButton.setText(speedText(0));
+        timeSlider.setValue(0);
+
+        return false;
+    };
     if(!Vars.ui.hudfrag.shown || Vars.ui.minimapfrag.shown()) return false;
     if(!Vars.mobile) return true;
     
